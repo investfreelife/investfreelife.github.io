@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimbo — мы делаем digital и немного магии</title>
+<meta name="description" content="Nimbo — креативная студия: сайты, лендинги, Telegram-боты, парсеры и автоматизация. Смелый дизайн, инженерия и измеримый результат.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f3efe6">
+<link rel="canonical" href="https://investfreelife.github.io/monday/">
+<meta property="og:title" content="Nimbo — мы делаем digital и немного магии">
+<meta property="og:description" content="Креативная студия: сайты, боты, парсеры, автоматизация.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23ff4d2e' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe6; --ink:#111014; --mut:#6b6657; --line:#ddd6c7;
+  --acc:#ff4d2e; --acc2:#2b2bff;
+  --r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+::selection{background:var(--acc);color:#fff}
+
+/* cursor */
+.cur{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:120;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;display:flex;align-items:center;justify-content:center;font-size:0;color:#fff;font-weight:700;font-family:'Space Grotesk'}
+.cur.big{width:88px;height:88px;background:var(--acc);font-size:14px}
+@media(hover:none){.cur{display:none}}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;padding:48px;transition:transform .8s cubic-bezier(.76,0,.24,1)}
+#pre.up{transform:translateY(-100%)}
+#pre .big{font-family:'Space Grotesk';font-weight:700;font-size:clamp(60px,14vw,200px);line-height:.8;letter-spacing:-3px}
+#pre .pc{font-family:'Space Grotesk';font-size:18px;color:var(--mut)}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:80;mix-blend-mode:difference}
+nav{display:flex;align-items:center;justify-content:space-between;height:88px;color:#fff}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:26px;letter-spacing:-1px}
+.nav-links{display:flex;gap:34px;font-size:15px;font-weight:600}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#fff;transition:width .3s}
+.nav-links a:hover::after{width:100%}
+@media(max-width:780px){.nav-links{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:100px;font-weight:700;font-size:16px;cursor:none;transition:transform .3s,background .3s,color .3s}
+.btn-d{background:var(--ink);color:var(--bg)}
+.btn-d:hover{background:var(--acc);color:#fff;transform:translateY(-3px)}
+
+/* hero */
+.hero{padding:200px 0 90px}
+.hero h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(52px,11vw,168px);line-height:.92;letter-spacing:-4px}
+.hero h1 em{font-family:'Instrument Serif';font-style:italic;font-weight:400;color:var(--acc);letter-spacing:-1px}
+.hero h1 .o{overflow:hidden;display:block}
+.hero h1 .o>span{display:inline-block;will-change:transform}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:60px;flex-wrap:wrap;gap:30px}
+.hero-bottom p{max-width:440px;font-size:clamp(17px,2vw,21px);color:var(--mut)}
+
+/* marquee */
+.mq{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:18px 0;overflow:hidden;white-space:nowrap;margin-top:40px}
+.mq .t{display:inline-block;font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4vw,46px);animation:sx 28s linear infinite}
+.mq .t span{margin:0 22px}
+.mq .t em{font-family:'Instrument Serif';font-style:italic;color:var(--acc)}
+@keyframes sx{to{transform:translateX(-50%)}}
+
+/* section heads */
+section{padding:120px 0}
+.lead{font-family:'Space Grotesk';font-weight:700;font-size:clamp(34px,6vw,86px);line-height:1;letter-spacing:-2px;max-width:14ch}
+.lead em{font-family:'Instrument Serif';font-style:italic;font-weight:400;color:var(--acc)}
+.kicker{display:flex;align-items:center;gap:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:13px;color:var(--mut);margin-bottom:28px}
+.kicker::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--acc)}
+
+/* work grid */
+.filters{display:flex;gap:12px;flex-wrap:wrap;margin:40px 0 34px}
+.chip{padding:9px 20px;border:1.5px solid var(--ink);border-radius:100px;font-weight:600;font-size:14px;cursor:none;transition:.25s}
+.chip.on,.chip:hover{background:var(--ink);color:var(--bg)}
+.work{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:780px){.work{grid-template-columns:1fr}}
+.proj{cursor:none}
+.proj .ph{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end;padding:28px;color:#fff}
+.proj .ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.12);transition:background .3s}
+.proj:hover .ph::after{background:rgba(0,0,0,0)}
+.proj .ph>*{position:relative;z-index:2}
+.proj .ph .num{position:absolute;top:24px;right:28px;font-family:'Space Grotesk';font-weight:700;font-size:20px;opacity:.8}
+.proj img,.proj .grad{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.proj:hover img,.proj:hover .grad{transform:scale(1.06)}
+.proj h3{font-family:'Space Grotesk';font-weight:700;font-size:26px;letter-spacing:-.5px}
+.proj .meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px}
+.proj .tags{color:var(--mut);font-size:14px}
+.proj .arr{font-size:22px;transition:transform .3s}
+.proj:hover .arr{transform:translate(4px,-4px)}
+
+/* services big list */
+.slist{border-top:1.5px solid var(--line);margin-top:50px}
+.srow{border-bottom:1.5px solid var(--line);padding:34px 0;display:flex;align-items:center;justify-content:space-between;cursor:none;position:relative;transition:padding .3s}
+.srow:hover{padding-left:24px}
+.srow .n{font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,4vw,54px);letter-spacing:-1px;transition:color .3s}
+.srow:hover .n{color:var(--acc)}
+.srow .d{color:var(--mut);max-width:360px;text-align:right;font-size:15px}
+@media(max-width:680px){.srow .d{display:none}}
+
+/* promo band */
+.promo{background:var(--ink);color:var(--bg);border-radius:32px;padding:90px 50px;text-align:center;margin:0 32px}
+.promo h2{font-family:'Space Grotesk';font-weight:700;font-size:clamp(34px,6vw,82px);line-height:.95;letter-spacing:-2px}
+.promo h2 em{font-family:'Instrument Serif';font-style:italic;color:var(--acc)}
+.promo .btn{background:var(--bg);color:var(--ink);margin-top:36px}
+.promo .btn:hover{background:var(--acc);color:#fff}
+
+/* contact */
+.contact{padding:140px 0}
+.contact h2{font-family:'Space Grotesk';font-weight:700;font-size:clamp(44px,9vw,140px);line-height:.9;letter-spacing:-3px}
+.contact h2 em{font-family:'Instrument Serif';font-style:italic;color:var(--acc)}
+.contact .big-link{display:inline-block;margin-top:40px;font-family:'Space Grotesk';font-weight:700;font-size:clamp(24px,4vw,44px);border-bottom:3px solid var(--acc);cursor:none}
+
+footer{border-top:1.5px solid var(--line);padding:50px 0}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;color:var(--mut);font-size:14px}
+.note{margin:24px 32px 0;background:#fff3cd;border:1px dashed #b8932a;color:#7a5c11;border-radius:12px;padding:13px 18px;font-size:13px;text-align:center}
+.reveal>*{will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="pre"><div class="big">Nimbo</div><div class="pc"><span id="pc">0</span>%</div></div>
+<div class="cur" id="cur"></div>
+
+<header><div class="wrap"><nav>
+  <div class="logo">Nimbo®</div>
+  <div class="nav-links"><a href="#work">Работы</a><a href="#services">Услуги</a><a href="#promo">О студии</a><a href="#contact">Контакты</a></div>
+  <a href="#contact" class="btn btn-d" id="tg0" style="padding:12px 24px;font-size:14px">Связаться</a>
+</nav></div></header>
+
+<section class="hero"><div class="wrap">
+  <h1>
+    <span class="o"><span>Мы делаем</span></span>
+    <span class="o"><span>digital <em>и&nbsp;немного</em></span></span>
+    <span class="o"><span><em>магии</em>…</span></span>
+  </h1>
+  <div class="hero-bottom">
+    <p>Креативная студия Nimbo: сайты, лендинги, Telegram-боты, парсеры и автоматизация. Смелый дизайн + инженерия + измеримый результат.</p>
+    <a class="btn btn-d" id="tg1">Начать проект →</a>
+  </div>
+</div>
+  <div class="mq"><div class="t" id="mq"></div></div>
+</section>
+
+<section id="work"><div class="wrap">
+  <div class="kicker reveal">Избранные работы</div>
+  <h2 class="lead reveal">Проекты, которые <em>работают</em></h2>
+  <div class="filters reveal">
+    <span class="chip on">Все</span><span class="chip">Сайты</span><span class="chip">Боты</span><span class="chip">Парсеры</span><span class="chip">Автоматизация</span>
+  </div>
+  <div class="work">
+    <div class="proj reveal"><div class="ph"><div class="grad" style="background:linear-gradient(135deg,#ff4d2e,#ffb37a)"></div><span class="num">01</span><div><h3>Avtoclean — лендинг автосервиса</h3><div class="meta"><span class="tags">Сайт · 3D · SEO</span><span class="arr">↗</span></div></div></div></div>
+    <div class="proj reveal"><div class="ph"><div class="grad" style="background:linear-gradient(135deg,#2b2bff,#7ad0ff)"></div><span class="num">02</span><div><h3>Telegram-бот приёма заявок</h3><div class="meta"><span class="tags">Бот · CRM · AI</span><span class="arr">↗</span></div></div></div></div>
+    <div class="proj reveal"><div class="ph"><div class="grad" style="background:linear-gradient(135deg,#111,#555)"></div><span class="num">03</span><div><h3>Парсер бизнесов Москвы</h3><div class="meta"><span class="tags">Парсер · Данные</span><span class="arr">↗</span></div></div></div></div>
+    <div class="proj reveal"><div class="ph"><div class="grad" style="background:linear-gradient(135deg,#0aa37a,#b6f09c)"></div><span class="num">04</span><div><h3>Автоматизация маркетинга</h3><div class="meta"><span class="tags">Автоматизация · API</span><span class="arr">↗</span></div></div></div></div>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="kicker reveal">Услуги</div>
+  <h2 class="lead reveal">Что мы <em>умеем</em></h2>
+  <div class="slist">
+    <div class="srow reveal"><span class="n">Сайты и лендинги</span><span class="d">Конверсионные посадочные и сайты с 3D, SEO и скоростью</span></div>
+    <div class="srow reveal"><span class="n">Telegram-боты</span><span class="d">Продажи, заявки, оплаты, AI-ответы 24/7</span></div>
+    <div class="srow reveal"><span class="n">Парсеры данных</span><span class="d">Карты, маркетплейсы, соцсети — структурируем</span></div>
+    <div class="srow reveal"><span class="n">Автоматизация</span><span class="d">Интеграции, авто-отчёты, AI-агенты под процесс</span></div>
+    <div class="srow reveal"><span class="n">AI-контент</span><span class="d">Изображения и видео для маркетинга</span></div>
+  </div>
+</div></section>
+
+<section id="promo"><div class="promo reveal">
+  <h2>Ускоритель для <em>вашего</em> бизнеса в&nbsp;digital</h2>
+  <a class="btn" id="tg2">Обсудить проект →</a>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <div class="kicker reveal">Контакты</div>
+  <h2 class="reveal">Расскажите<br>о <em>задаче</em></h2>
+  <a class="big-link" id="tg3">Написать в Telegram ↗</a>
+  <div class="note">⚠️ Заглушка: впиши Telegram в <code>TELEGRAM_URL</code> внизу <code>index.html</code> (сейчас <code>@CHANGE_ME</code>).</div>
+</div></section>
+
+<footer><div class="wrap foot">
+  <div class="logo" style="font-size:20px">Nimbo®</div>
+  <div>Сайты · Боты · Парсеры · Автоматизация</div>
+  <div>© 2026 Nimbo · <a href="/" style="border-bottom:1px solid var(--mut)">тёмная версия →</a></div>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+const TELEGRAM_URL="https://t.me/CHANGE_ME";
+document.querySelectorAll('#tg0,#tg1,#tg2,#tg3').forEach(a=>a.href=TELEGRAM_URL);
+const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// marquee
+document.getElementById('mq').innerHTML=("<span>САЙТЫ</span><span>·</span><span>ЛЕНДИНГИ</span><span>·</span><span>БОТЫ</span><span>·</span><span>ПАРСЕРЫ</span><span>·</span><span>АВТОМАТИЗАЦИЯ</span><span><em>магия</em></span><span>·</span>").repeat(4);
+
+// preloader
+(function(){const pre=document.getElementById('pre'),pc=document.getElementById('pc');let v=0;
+  const iv=setInterval(()=>{v=Math.min(100,v+Math.random()*15);pc.textContent=Math.round(v);
+    if(v>=100){clearInterval(iv);setTimeout(()=>{pre.classList.add('up');hero();},300);}},90);})();
+
+// custom cursor + "Смотреть" on projects
+(function(){const c=document.getElementById('cur');let x=innerWidth/2,y=innerHeight/2,cx=x,cy=y;
+  addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;});
+  (function l(){cx+=(x-cx)*.2;cy+=(y-cy)*.2;c.style.left=cx+'px';c.style.top=cy+'px';requestAnimationFrame(l);})();
+  document.querySelectorAll('.proj').forEach(p=>{p.addEventListener('mouseenter',()=>{c.classList.add('big');c.textContent='Смотреть';});p.addEventListener('mouseleave',()=>{c.classList.remove('big');c.textContent='';});});
+})();
+
+// lenis
+let lenis;
+if(!reduced&&window.Lenis){lenis=new Lenis({lerp:.1});lenis.on('scroll',()=>window.ScrollTrigger&&ScrollTrigger.update());gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10});}}));}
+
+function hero(){
+  gsap.to('.hero h1 .o>span',{yPercent:0,duration:1.1,ease:'expo.out',stagger:.1,startAt:{yPercent:110}});
+}
+if(window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.reveal').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+}
+// filters (visual only — demo)
+document.querySelectorAll('.chip').forEach(ch=>ch.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));ch.classList.add('on');}));
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Nimbo","url":"https://investfreelife.github.io/monday/","description":"Креативная цифровая студия: сайты, боты, парсеры, автоматизация.","slogan":"Мы делаем digital и немного магии"}
+</script>
+</body>
+</html>
