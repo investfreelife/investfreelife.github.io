@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МЕЧТА — сайты, лендинги, Telegram-боты, парсеры, автоматизация</title>
+<meta name="description" content="Студия МЕЧТА: разрабатываем сайты и лендинги, Telegram-ботов, парсеры данных и автоматизацию под ключ. Быстро, под задачу бизнеса, с измеримым результатом.">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:title" content="МЕЧТА — цифровая студия">
+<meta property="og:description" content="Сайты, лендинги, Telegram-боты, парсеры, автоматизация под ключ.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<style>
+  :root{
+    --bg:#0a0a0f; --bg2:#11121a; --card:#15161f; --line:#23242f;
+    --txt:#eef0f7; --mut:#9aa0b4;
+    --acc:oklch(0.72 0.18 265); --acc2:oklch(0.78 0.16 190);
+    --grad:linear-gradient(135deg, oklch(0.72 0.18 265), oklch(0.78 0.16 190));
+    --r:18px; --shadow:0 20px 50px -20px rgba(0,0,0,.7);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .2s ease,box-shadow .2s ease;will-change:transform}
+  .btn-primary{background:var(--grad);color:#06070c;box-shadow:0 10px 30px -8px oklch(0.72 0.18 265 / .6)}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02)}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt)}
+  .btn-ghost:hover{border-color:var(--acc);transform:translateY(-3px)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,10,15,.7);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:.5px}
+  .logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:30px;font-size:15px;color:var(--mut)}
+  .nav-links a:hover{color:var(--txt)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;padding:120px 0 100px;text-align:center;overflow:hidden}
+  .glow{position:absolute;inset:0;z-index:-1}
+  .glow::before,.glow::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.4}
+  .glow::before{width:480px;height:480px;background:oklch(0.72 0.18 265);top:-120px;left:50%;transform:translateX(-60%)}
+  .glow::after{width:420px;height:420px;background:oklch(0.78 0.16 190);top:40px;left:50%;transform:translateX(10%)}
+  .tag{display:inline-block;padding:7px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--mut);margin-bottom:26px}
+  .hero h1{font-size:clamp(38px,6vw,68px);font-weight:800;line-height:1.05;letter-spacing:-1px}
+  .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{max-width:640px;margin:24px auto 36px;font-size:clamp(17px,2.2vw,21px);color:var(--mut)}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .trust{margin-top:40px;color:var(--mut);font-size:14px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+  .trust b{color:var(--txt)}
+
+  /* sections */
+  section{padding:90px 0}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 56px}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.5px}
+  .sec-head p{color:var(--mut);margin-top:14px;font-size:18px}
+  .eyebrow{color:var(--acc2);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;display:block}
+
+  /* services grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;transition:transform .25s ease,border-color .25s ease}
+  .card:hover{transform:translateY(-6px);border-color:var(--acc)}
+  .card .ic{width:52px;height:52px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+  .card h3{font-size:21px;margin-bottom:10px}
+  .card p{color:var(--mut);font-size:15px}
+  .card ul{list-style:none;margin-top:14px;font-size:14px;color:var(--mut)}
+  .card ul li{padding-left:20px;position:relative;margin-bottom:6px}
+  .card ul li::before{content:"→";position:absolute;left:0;color:var(--acc2)}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .step{position:relative;padding:28px;background:var(--bg2);border-radius:var(--r);border:1px solid var(--line)}
+  .step .n{font-size:46px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .step h4{margin:10px 0 8px;font-size:18px}
+  .step p{color:var(--mut);font-size:14px}
+
+  /* cta band */
+  .cta-band{background:var(--grad);border-radius:28px;padding:60px 40px;text-align:center;color:#06070c;margin:0 24px}
+  .cta-band h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+  .cta-band p{margin:14px 0 28px;font-size:18px;opacity:.85;font-weight:500}
+  .cta-band .btn{background:#0a0a0f;color:#fff}
+  .cta-band .btn:hover{transform:translateY(-3px) scale(1.02)}
+
+  footer{padding:50px 0 40px;border-top:1px solid var(--line);color:var(--mut);font-size:14px;text-align:center}
+  footer .logo{margin-bottom:14px}
+  .badge-note{margin:30px auto 0;max-width:760px;background:#1a1206;border:1px dashed #6b4e16;color:#e9c46a;border-radius:12px;padding:14px 18px;font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <div class="logo"><b>МЕЧТА</b> · студия</div>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как работаем</a>
+      <a href="#why">Почему мы</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <a href="#contact" class="btn btn-primary" style="padding:10px 20px;font-size:15px">Обсудить проект</a>
+  </nav></div>
+</header>
+
+<section class="hero">
+  <div class="glow"></div>
+  <div class="wrap">
+    <span class="tag" data-aos="fade-down">⚡ Цифровая студия полного цикла</span>
+    <h1 data-aos="fade-up">Сайты, боты и <span class="g">автоматизация</span><br>которые приносят деньги</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Делаем сайты и лендинги, Telegram-ботов, парсеры данных и автоматизацию бизнес-процессов. Быстро, под конкретную задачу, с измеримым результатом.</p>
+    <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+      <a class="btn btn-primary" id="cta-tg-hero">Написать в Telegram</a>
+      <a class="btn btn-ghost" href="#services">Что мы умеем</a>
+    </div>
+    <div class="trust" data-aos="fade-up" data-aos-delay="300">
+      <span><b>3–7 дней</b> на лендинг</span>
+      <span><b>от 0 ₽</b> хостинг</span>
+      <span><b>под ключ</b> — от идеи до запуска</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="eyebrow">Услуги</span>
+      <h2>Что мы делаем</h2>
+      <p>Пять направлений — закрываем цифровые задачи бизнеса от витрины до автоматизации рутины.</p>
+    </div>
+    <div class="grid">
+      <div class="card" data-aos="fade-up">
+        <div class="ic">🌐</div><h3>Сайты</h3>
+        <p>Корпоративные сайты и многостраничники под задачи бизнеса.</p>
+        <ul><li>Адаптив и скорость (Core Web Vitals)</li><li>SEO-готовность</li><li>Дизайн под бренд</li></ul>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <div class="ic">🎯</div><h3>Лендинги</h3>
+        <p>Конверсионные посадочные под трафик и рекламу.</p>
+        <ul><li>Сильный оффер и структура</li><li>A/B-логика</li><li>Запуск за 3–7 дней</li></ul>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="160">
+        <div class="ic">🤖</div><h3>Telegram-боты</h3>
+        <p>Боты для продаж, поддержки, заявок и автоворонок.</p>
+        <ul><li>Приём заявок и оплат</li><li>CRM и уведомления</li><li>AI-ответы 24/7</li></ul>
+      </div>
+      <div class="card" data-aos="fade-up">
+        <div class="ic">🔎</div><h3>Парсеры данных</h3>
+        <p>Сбор и структурирование данных из любых источников.</p>
+        <ul><li>Карты, маркетплейсы, соцсети</li><li>Дедупликация и экспорт</li><li>Регулярные выгрузки</li></ul>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <div class="ic">⚙️</div><h3>Автоматизация</h3>
+        <p>Связываем сервисы и убираем ручную рутину.</p>
+        <ul><li>Интеграции API и вебхуки</li><li>Авто-отчёты и рассылки</li><li>AI-агенты под процесс</li></ul>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="160">
+        <div class="ic">🚀</div><h3>Под ключ</h3>
+        <p>Берём задачу целиком — от идеи до работающего продукта.</p>
+        <ul><li>Дизайн + разработка</li><li>Хостинг и запуск</li><li>Поддержка и доработки</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="eyebrow">Процесс</span>
+      <h2>Как мы работаем</h2>
+      <p>Прозрачно и быстро. Вы видите результат на каждом шаге.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-aos="fade-up"><div class="n">01</div><h4>Бриф</h4><p>Разбираем задачу и цель. Фиксируем оффер и метрику успеха.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="80"><div class="n">02</div><h4>Прототип</h4><p>Показываем структуру и дизайн до разработки. Согласуем.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="160"><div class="n">03</div><h4>Сборка</h4><p>Делаем продукт: дизайн, код, интеграции, тексты.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="240"><div class="n">04</div><h4>Запуск</h4><p>Публикуем, подключаем аналитику, передаём и поддерживаем.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="eyebrow">Почему мы</span>
+      <h2>Скорость + результат</h2>
+    </div>
+    <div class="grid">
+      <div class="card" data-aos="fade-up"><div class="ic">⚡</div><h3>Быстро</h3><p>Лендинг — за 3–7 дней. Бот или парсер — за неделю. Не растягиваем сроки.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80"><div class="ic">📈</div><h3>На результат</h3><p>Считаем заявки и конверсию, а не «красивость ради красивости».</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="160"><div class="ic">🛠️</div><h3>Полный цикл</h3><p>Дизайн, код, тексты, хостинг, автоматизация — в одной команде.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-bottom:90px">
+  <div class="cta-band" data-aos="zoom-in">
+    <h2>Расскажите о задаче</h2>
+    <p>Ответим, предложим решение и сроки. Бесплатно.</p>
+    <a class="btn" id="cta-tg-main">Написать в Telegram →</a>
+  </div>
+  <div class="badge-note">⚠️ ВНИМАНИЕ (видно только пока не заменён контакт): впиши свой Telegram в <code>config.js</code> → <code>TELEGRAM_URL</code>. Сейчас стоит заглушка <code>@CHANGE_ME</code>.</div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><b>МЕЧТА</b> · студия</div>
+    <p>Сайты · Лендинги · Telegram-боты · Парсеры · Автоматизация</p>
+    <p style="margin-top:10px;opacity:.6">© 2026 МЕЧТА. Сделано с любовью к результату.</p>
+  </div>
+</footer>
+
+<script>
+  // ====== КОНТАКТ: замени значение ниже на свой Telegram ======
+  const TELEGRAM_URL = "https://t.me/CHANGE_ME";   // напр. https://t.me/sergey
+  // ============================================================
+  document.querySelectorAll('#cta-tg-hero,#cta-tg-main').forEach(a=>a.href=TELEGRAM_URL);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({duration:700,once:true,offset:60});</script>
+</body>
+</html>
