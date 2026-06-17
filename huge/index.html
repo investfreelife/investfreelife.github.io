@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nimbo — создаём digital-продукты будущего</title>
+<meta name="description" content="Nimbo — design & tech студия: сайты с WebGL, Telegram-боты, парсеры, автоматизация. Делаем первыми, определяем будущее. Техно-люкс уровня мировых агентств.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://investfreelife.github.io/huge/">
+<meta property="og:title" content="Nimbo — digital-продукты будущего">
+<meta property="og:description" content="Design & tech студия: WebGL-сайты, боты, парсеры, автоматизация.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23ff0090' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--fg:#fff;--magenta:#ff0090;--green:#00ff75;--panel:#16181d;--gray:#87868a;--line:#26282e}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1340px;margin:0 auto;padding:0 40px}
+.mono{font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:1px;font-size:13px;color:var(--gray)}
+canvas#gl{position:fixed;inset:0;z-index:0;pointer-events:none}
+.content{position:relative;z-index:2}
+
+.cursor{position:fixed;top:0;left:0;width:22px;height:22px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;color:#000;font:700 11px 'Space Mono';transition:width .3s,height .3s}
+.cursor.big{width:90px;height:90px}
+@media(hover:none){.cursor{display:none}}
+
+#pre{position:fixed;inset:0;z-index:300;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;transition:opacity .6s}
+#pre.hide{opacity:0;pointer-events:none}
+#pre .n{font-weight:700;font-size:clamp(60px,12vw,150px);line-height:.85;color:#fff}
+#pre .n b{color:var(--magenta)}
+#pre .p{font-family:'Space Mono';color:var(--gray)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:90}
+nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{font-weight:700;font-size:24px;letter-spacing:-.5px}.logo b{color:var(--magenta)}
+.nav-links{display:flex;gap:30px;font-size:14px;font-weight:500;font-family:'Space Mono';text-transform:uppercase}
+.nav-links a:hover{color:var(--magenta)}
+@media(max-width:820px){.nav-links{display:none}}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:0;font-weight:700;font-size:14px;font-family:'Space Mono';text-transform:uppercase;cursor:none;border:1px solid var(--fg);transition:.25s}
+.btn-m{background:var(--magenta);border-color:var(--magenta);color:#000}
+.btn-m:hover{background:var(--green);border-color:var(--green)}
+.btn-o:hover{background:#fff;color:#000}
+
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 70px;position:relative}
+.hero .mono.tag{margin-bottom:24px}
+.hero h1{font-weight:700;font-size:clamp(44px,8.5vw,128px);line-height:.92;letter-spacing:-3px;max-width:16ch}
+.hero h1 .m{color:var(--magenta)}
+.hero .sub{margin-top:30px;max-width:520px;font-size:clamp(16px,2vw,20px);color:#c8c8cc}
+.hero .row{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.scroll{position:absolute;bottom:34px;left:40px;display:flex;align-items:center;gap:12px}
+.scroll .ln{width:60px;height:1px;background:var(--magenta)}
+
+section{padding:140px 0;position:relative;z-index:2}
+.snum{font-family:'Space Mono';color:var(--magenta);font-size:14px}
+.lead{font-weight:700;font-size:clamp(30px,5vw,72px);line-height:1;letter-spacing:-1.5px;margin-top:14px}
+.lead .g{color:var(--green)}
+
+.svc-row{border-top:1px solid var(--line);padding:30px 0;display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;cursor:none;transition:.3s}
+.svc-row:hover{padding-left:18px;background:linear-gradient(90deg,rgba(255,0,144,.06),transparent)}
+.svc-row .idx{font-family:'Space Mono';color:var(--gray)}
+.svc-row .t{font-weight:700;font-size:clamp(22px,3.2vw,40px);letter-spacing:-1px}
+.svc-row:hover .t{color:var(--magenta)}
+.svc-row .x{font-family:'Space Mono';color:var(--gray);font-size:13px}
+@media(max-width:680px){.svc-row{grid-template-columns:50px 1fr}.svc-row .x{display:none}}
+
+.manifesto{font-weight:700;font-size:clamp(28px,4.5vw,64px);line-height:1.1;letter-spacing:-1px;max-width:18ch}
+.manifesto .m{color:var(--magenta)}.manifesto .g{color:var(--green)}
+
+.work{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
+@media(max-width:760px){.work{grid-template-columns:1fr}}
+.tile{position:relative;aspect-ratio:16/11;overflow:hidden;cursor:none;will-change:transform}
+.tile .bg{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .4s;filter:grayscale(.2)}
+.tile:hover .bg{transform:scale(1.07);filter:grayscale(0)}
+.tile .meta{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;z-index:2}
+.tile .meta::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.7));z-index:-1}
+.tile h3{font-weight:700;font-size:26px;letter-spacing:-.5px}
+.tile .tag{font-family:'Space Mono';font-size:12px;color:var(--green);margin-top:6px;text-transform:uppercase}
+.tile .no{position:absolute;top:22px;left:28px;font-family:'Space Mono';font-size:13px;color:#fff;z-index:2}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:30px;border-top:1px solid var(--line);padding-top:50px;margin-top:10px}
+.stat .num{font-weight:700;font-size:clamp(44px,7vw,86px);line-height:1;letter-spacing:-2px}
+.stat .num .u{color:var(--magenta)}
+.stat .lbl{font-family:'Space Mono';font-size:13px;color:var(--gray);margin-top:10px;text-transform:uppercase}
+
+.cta-final{padding:160px 0;text-align:center}
+.cta-final h2{font-weight:700;font-size:clamp(44px,9vw,150px);line-height:.9;letter-spacing:-3px}
+.cta-final h2 .m{color:var(--magenta)}
+.biglink{display:inline-block;margin-top:40px;font-family:'Space Mono';font-size:clamp(16px,2vw,22px);text-transform:uppercase;border-bottom:2px solid var(--green);padding-bottom:6px;cursor:none}
+
+footer{border-top:1px solid var(--line);padding:50px 0;position:relative;z-index:2}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:'Space Mono';font-size:13px;color:var(--gray);text-transform:uppercase}
+.foot a:hover{color:var(--magenta)}
+.note{margin:22px 40px 0;border:1px dashed #6b4e16;color:#e9c46a;border-radius:8px;padding:12px 16px;font-size:13px;text-align:center;font-family:'Space Mono'}
+.reveal{opacity:0;transform:translateY(40px)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="pre"><div class="n">Nimbo<b>.</b></div><div class="p" id="pp">Загрузка 0%</div></div>
+<canvas id="gl"></canvas>
+<div class="cursor" id="cur"></div>
+
+<div class="content">
+<header><div class="wrap"><nav>
+  <div class="logo">Nimbo<b>.</b></div>
+  <div class="nav-links"><a href="#services">Услуги</a><a href="#work">Работы</a><a href="#about">Студия</a><a href="#contact">Контакты</a></div>
+  <a href="#contact" class="btn btn-m" id="tg0">Связаться</a>
+</nav></div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="mono tag">— Design & Tech студия</div>
+  <h1>Делаем <span class="m">первыми</span>.<br>Определяем будущее.</h1>
+  <p class="sub">Сайты с WebGL, Telegram-боты, парсеры и автоматизация. Создаём интеллектуальные digital-продукты для амбициозных брендов.</p>
+  <div class="row">
+    <a class="btn btn-m" id="tg1">Начать проект</a>
+    <a class="btn btn-o" href="#work">Смотреть работы</a>
+  </div>
+</div>
+  <div class="scroll"><span class="ln"></span><span class="mono">scroll</span></div>
+</section>
+
+<section id="services"><div class="wrap">
+  <div class="snum">01 — Услуги</div>
+  <h2 class="lead">Что мы <span class="g">делаем</span></h2>
+  <div style="margin-top:50px">
+    <div class="svc-row"><span class="idx">01</span><span class="t">Сайты и платформы</span><span class="x">WebGL · 3D · SEO</span></div>
+    <div class="svc-row"><span class="idx">02</span><span class="t">Telegram-боты</span><span class="x">Продажи · CRM · AI 24/7</span></div>
+    <div class="svc-row"><span class="idx">03</span><span class="t">Парсеры данных</span><span class="x">Карты · Маркетплейсы · Соцсети</span></div>
+    <div class="svc-row"><span class="idx">04</span><span class="t">Автоматизация</span><span class="x">API · Отчёты · AI-агенты</span></div>
+    <div class="svc-row"><span class="idx">05</span><span class="t">AI-контент</span><span class="x">Видео · Изображения</span></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="snum">02 — Манифест</div>
+  <p class="manifesto reveal" style="margin-top:18px">Будущее определят <span class="m">интеллектуальные</span> взаимодействия между брендами и людьми. Мы их <span class="g">проектируем</span>.</p>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="snum">03 — Работы</div>
+  <h2 class="lead">Избранные <span class="g">кейсы</span></h2>
+  <div class="work">
+    <div class="tile reveal"><div class="bg" style="background:linear-gradient(135deg,#ff0090,#7a1dd7)"></div><span class="no">W—01</span><div class="meta"><h3>Avtoclean — лендинг</h3><div class="tag">Сайт / WebGL</div></div></div>
+    <div class="tile reveal"><div class="bg" style="background:linear-gradient(135deg,#00ff75,#0aa37a)"></div><span class="no">W—02</span><div class="meta"><h3>Telegram-бот заявок</h3><div class="tag">Бот / AI</div></div></div>
+    <div class="tile reveal"><div class="bg" style="background:linear-gradient(135deg,#191919,#5a5a5a)"></div><span class="no">W—03</span><div class="meta"><h3>Парсер Москвы</h3><div class="tag">Данные</div></div></div>
+    <div class="tile reveal"><div class="bg" style="background:linear-gradient(135deg,#804dc7,#8de2f2)"></div><span class="no">W—04</span><div class="meta"><h3>Автоматизация</h3><div class="tag">API / Агенты</div></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="snum">04 — Цифры</div>
+  <div class="stats">
+    <div class="stat reveal"><div class="num" data-c="3">0</div><div class="lbl">дня на лендинг</div></div>
+    <div class="stat reveal"><div class="num" data-c="56">0</div><div class="lbl">лидов в работе</div></div>
+    <div class="stat reveal"><div class="num"><span data-c="100">0</span><span class="u">%</span></div><div class="lbl">под задачу</div></div>
+    <div class="stat reveal"><div class="num" data-c="24">0</div><div class="lbl">/7 на связи</div></div>
+  </div>
+</div></section>
+
+<section class="cta-final" id="contact"><div class="wrap">
+  <div class="snum">05 — Контакты</div>
+  <h2>Начнём <span class="m">первыми</span>?</h2>
+  <a class="biglink" id="tg2">Написать в Telegram →</a>
+  <div class="note">⚠️ Заглушка: впиши Telegram в TELEGRAM_URL внизу index.html (сейчас @CHANGE_ME).</div>
+</div></section>
+
+<footer><div class="wrap foot">
+  <div>Nimbo® — Design & Tech</div>
+  <div>Сайты · Боты · Парсеры · Автоматизация</div>
+  <div>© 2026 · <a href="/">тёмная 3D</a> · <a href="/monday/">monday</a> · <a href="/studio/">studio</a></div>
+</div></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const TELEGRAM_URL="https://t.me/CHANGE_ME";
+document.querySelectorAll('#tg0,#tg1,#tg2').forEach(a=>a.href=TELEGRAM_URL);
+const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const isMobile=matchMedia('(max-width:768px)').matches;
+const gsap=window.gsap,ScrollTrigger=window.ScrollTrigger;gsap.registerPlugin(ScrollTrigger);
+
+// preloader
+(function(){const pre=document.getElementById('pre'),pp=document.getElementById('pp');let v=0;
+  const iv=setInterval(()=>{v=Math.min(100,v+Math.random()*16);pp.textContent='Загрузка '+Math.round(v)+'%';
+    if(v>=100){clearInterval(iv);setTimeout(()=>{pre.classList.add('hide');intro();},250);}},80);})();
+
+// cursor (mix-blend difference)
+const cur=document.getElementById('cur');
+(function(){let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  (function l(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(l);})();
+  document.querySelectorAll('a,.btn,.svc-row,.tile').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.classList.add('big');cur.textContent=el.classList.contains('tile')?'VIEW':'';});
+    el.addEventListener('mouseleave',()=>{cur.classList.remove('big');cur.textContent='';});});
+})();
+
+let lenis=null,vel=0;
+async function init(){
+  if(!reduced){
+    const {default:Lenis}=await import('https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.mjs');
+    lenis=new Lenis({lerp:.1,smoothWheel:true,syncTouch:true});
+    lenis.on('scroll',e=>{vel=e.velocity||0;ScrollTrigger.update();});
+    gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:0});}}));
+  }
+  gsap.utils.toArray('.reveal').forEach(el=>gsap.to(el,{y:0,opacity:1,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+  // counters
+  gsap.utils.toArray('[data-c]').forEach(el=>{const end=+el.dataset.c;ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>gsap.to({v:0},{v:end,duration:1.6,ease:'power2.out',onUpdate(){el.firstChild&&el.firstChild.nodeType===3?el.firstChild.textContent=Math.round(this.targets()[0].v):el.textContent=Math.round(this.targets()[0].v);}})});});
+  ScrollTrigger.refresh();
+}
+function intro(){
+  gsap.from('.hero h1',{y:60,opacity:0,duration:1.1,ease:'expo.out'});
+  gsap.from('.hero .sub,.hero .row,.hero .tag',{y:30,opacity:0,duration:.9,stagger:.1,delay:.3});
+  init();
+}
+
+/* WebGL neon flow bg (domain-warp) reacting to mouse + scroll velocity */
+if(!reduced){
+  const canvas=document.getElementById('gl');
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+  renderer.setClearColor(0x000000,1);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,isMobile?1.5:2));
+  const scene=new THREE.Scene();const cam=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  const u={uTime:{value:0},uRes:{value:new THREE.Vector2(innerWidth,innerHeight)},uMouse:{value:new THREE.Vector2(.5,.5)},uVel:{value:0}};
+  const frag=`precision highp float;uniform float uTime;uniform vec2 uRes;uniform vec2 uMouse;uniform float uVel;
+  vec3 mag=vec3(1.0,0.0,0.565);vec3 grn=vec3(0.0,1.0,0.459);
+  vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x,289.0);}vec2 fade(vec2 t){return t*t*t*(t*(t*6.0-15.0)+10.0);}
+  float cnoise(vec2 P){vec4 Pi=floor(P.xyxy)+vec4(0.0,0.0,1.0,1.0);vec4 Pf=fract(P.xyxy)-vec4(0.0,0.0,1.0,1.0);
+    Pi=mod(Pi,289.0);vec4 ix=Pi.xzxz;vec4 iy=Pi.yyww;vec4 fx=Pf.xzxz;vec4 fy=Pf.yyww;
+    vec4 i=permute(permute(ix)+iy);vec4 gx=2.0*fract(i*0.0243902439)-1.0;vec4 gy=abs(gx)-0.5;
+    vec4 tx=floor(gx+0.5);gx=gx-tx;vec2 g00=vec2(gx.x,gy.x);vec2 g10=vec2(gx.y,gy.y);vec2 g01=vec2(gx.z,gy.z);vec2 g11=vec2(gx.w,gy.w);
+    vec4 norm=1.79284291400159-0.85373472095314*vec4(dot(g00,g00),dot(g01,g01),dot(g10,g10),dot(g11,g11));
+    g00*=norm.x;g01*=norm.y;g10*=norm.z;g11*=norm.w;
+    float n00=dot(g00,vec2(fx.x,fy.x));float n10=dot(g10,vec2(fx.y,fy.y));float n01=dot(g01,vec2(fx.z,fy.z));float n11=dot(g11,vec2(fx.w,fy.w));
+    vec2 fu=fade(Pf.xy);vec2 nx=mix(vec2(n00,n01),vec2(n10,n11),fu.x);return 2.3*mix(nx.x,nx.y,fu.y);}
+  void main(){vec2 uv=gl_FragCoord.xy/uRes.xy;float a=uRes.x/uRes.y;vec2 p=uv;p.x*=a;
+    float t=uTime*0.05+uVel*0.02;
+    vec2 q=vec2(cnoise(p*1.5+t),cnoise(p*1.5-t+5.0));
+    float w=cnoise(p*2.0+q*1.2+vec2(uMouse.x,uMouse.y)*0.6+t);
+    float m=smoothstep(0.0,0.7,w);float g=smoothstep(0.2,0.9,-w);
+    vec3 col=vec3(0.0);col+=mag*m*0.5;col+=grn*g*0.32;
+    float md=distance(uv,uMouse);col+=mag*smoothstep(0.35,0.0,md)*0.25;
+    col*=0.55; // приглушаем, чтобы текст читался
+    gl_FragColor=vec4(col,1.0);}`;
+  const mat=new THREE.ShaderMaterial({uniforms:u,fragmentShader:frag,vertexShader:`void main(){gl_Position=vec4(position,1.0);}`});
+  scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),mat));
+  addEventListener('mousemove',e=>{u.uMouse.value.set(e.clientX/innerWidth,1.0-e.clientY/innerHeight);},{passive:true});
+  addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);u.uRes.value.set(innerWidth,innerHeight);});
+  renderer.setSize(innerWidth,innerHeight);
+  let run=true;document.addEventListener('visibilitychange',()=>run=!document.hidden);
+  const clock=new THREE.Clock();
+  (function loop(){requestAnimationFrame(loop);if(!run)return;u.uTime.value=clock.getElapsedTime();u.uVel.value+=(Math.abs(vel)-u.uVel.value)*.1;renderer.render(scene,cam);})();
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Nimbo","url":"https://investfreelife.github.io/huge/","description":"Design & tech студия: WebGL-сайты, боты, парсеры, автоматизация.","slogan":"Делаем первыми. Определяем будущее."}
+</script>
+</body>
+</html>
