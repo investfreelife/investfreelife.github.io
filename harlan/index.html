@@ -184,6 +184,22 @@ footer{border-top:1px solid var(--line);background:#0c0d14;padding:56px 0 28px;m
 .callbar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;padding:13px;border-radius:10px}
 .callbar .c1{background:var(--goldgrad);color:#0a0a10}.callbar .c2{border:1px solid var(--line);color:#fff}
 @media(max-width:700px){.callbar{display:flex}body{padding-bottom:66px}}
+
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}
+@media(max-width:760px){.pillars{grid-template-columns:1fr}}
+.pillar{position:relative;border:1px solid var(--line);border-radius:18px;padding:34px 30px 30px;background:radial-gradient(120% 100% at 0 0,rgba(232,184,109,.12),transparent 55%),var(--card);transition:transform .3s,border-color .3s;overflow:hidden}
+.pillar:hover{transform:translateY(-5px);border-color:var(--gold)}
+.pillar .ic{font-size:30px;margin-bottom:14px}
+.pillar h3{font-family:Oswald;font-size:26px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+.pillar p{color:var(--soft);font-size:15px;margin:10px 0 18px;max-width:42ch}
+.pillar .more{color:var(--gold);font-weight:700;font-size:14.5px}
+.pillar .arr{position:absolute;top:24px;right:26px;color:var(--mut);transition:.3s}
+.pillar:hover .arr{color:var(--gold);transform:translate(3px,-3px)}
+.poplinks{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+.poplinks .pl-label{color:var(--mut);font-size:14px;margin-right:4px}
+.poplinks a{font-size:14px;color:var(--soft);border:1px solid var(--line2);border-radius:100px;padding:8px 15px;transition:.2s}
+.poplinks a:hover{border-color:var(--gold);color:var(--gold)}
+.catbtn{margin-top:28px}
 </style>
 </head>
 <body>
@@ -243,21 +259,34 @@ footer{border-top:1px solid var(--line);background:#0c0d14;padding:56px 0 28px;m
 <!-- CATEGORIES -->
 <section id="categories"><div class="wrap">
   <div class="kick reveal">Каталог</div>
-  <h2 class="h2 reveal">23 категории <span class="gradtext">металлопроката</span></h2>
-  <p class="lead reveal">От арматуры и листа до нержавейки, цветмета и готовых конструкций. Реальные остатки и цены поставщиков в одном окне.</p>
-  <div class="cat-grid">
-    <a class="cat col6 reveal" href="#"><img class="bgimg" src="assets/s2.jpg" alt="" loading="lazy"><span class="arr">↗</span><div class="c"><div class="ic">🏗️</div><h3>Металлопрокат</h3><div class="cnt">арматура · балка · уголок · швеллер</div></div></a>
-    <a class="cat col3 reveal" href="#"><img class="bgimg" src="assets/s3.jpg" alt="" loading="lazy"><span class="arr">↗</span><div class="c"><div class="ic">📄</div><h3>Листовой прокат</h3><div class="cnt">г/к · х/к · оцинковка · рифлёный</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">⚙️</div><h3>Сортовой прокат</h3><div class="cnt">круг · квадрат · полоса · шестигранник</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🛢️</div><h3>Трубы</h3><div class="cnt">ВГП · профильная · бесшовная · э/с</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🔩</div><h3>Метизы</h3><div class="cnt">болты · гайки · саморезы · анкеры</div></div></a>
-    <a class="cat col3 reveal" href="#"><img class="bgimg" src="assets/s4.jpg" alt="" loading="lazy"><span class="arr">↗</span><div class="c"><div class="ic">✨</div><h3>Нержавеющая сталь</h3><div class="cnt">AISI 304 / 321 / 430</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🟫</div><h3>Цветные металлы</h3><div class="cnt">алюминий · медь · латунь · бронза</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🏠</div><h3>Кровельные материалы</h3><div class="cnt">профлист · металлочерепица · сэндвич</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🧱</div><h3>Качественные стали</h3><div class="cnt">ст45 · 40Х · 09Г2С · 65Г</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🛡️</div><h3>Износостойкая сталь</h3><div class="cnt">Hardox · сталь Гадфильда</div></div></a>
-    <a class="cat col3 reveal" href="#"><span class="arr">↗</span><div class="c"><div class="ic">🏛️</div><h3>Готовые конструкции</h3><div class="cnt">опоры · сваи · лестничные ограждения</div></div></a>
+  <h2 class="h2 reveal">Каталог проката <span class="gradtext">и конструкций</span></h2>
+  <p class="lead reveal">Более 16 000 позиций в 23 категориях. Реальные остатки, цены и фото поставщиков — в каталоге на сайте.</p>
+  <div class="pillars">
+    <a class="pillar reveal" href="https://www.harlansteel.ru/catalog">
+      <span class="arr">↗</span>
+      <div class="ic">🏗️</div>
+      <h3>Металлопрокат</h3>
+      <p>Листовой и сортовой прокат, трубы, метизы, нержавеющая и цветные металлы, качественные и износостойкие стали.</p>
+      <span class="more">Открыть раздел →</span>
+    </a>
+    <a class="pillar reveal" href="https://www.harlansteel.ru/constructions">
+      <span class="arr">↗</span>
+      <div class="ic">🏛️</div>
+      <h3>Готовые конструкции</h3>
+      <p>Ангары, навесы, заборы, каркасы зданий, лестницы, козырьки, контейнерные площадки и МАФ — изготовление под ключ.</p>
+      <span class="more">Открыть раздел →</span>
+    </a>
   </div>
+  <div class="poplinks reveal">
+    <span class="pl-label">Популярное:</span>
+    <a href="https://www.harlansteel.ru/catalog/listovoy-prokat">Листовой прокат</a>
+    <a href="https://www.harlansteel.ru/catalog/sortovoy-prokat">Сортовой прокат</a>
+    <a href="https://www.harlansteel.ru/catalog/truby">Трубы</a>
+    <a href="https://www.harlansteel.ru/catalog/metizy">Метизы</a>
+    <a href="https://www.harlansteel.ru/catalog/nerzhaveyuschaya-stal">Нержавеющая сталь</a>
+    <a href="https://www.harlansteel.ru/catalog/tsvetnye-metally">Цветные металлы</a>
+  </div>
+  <a class="hbtn catbtn reveal" href="https://www.harlansteel.ru/catalog">Открыть полный каталог</a>
 </div></section>
 
 <!-- AI FEATURE -->
@@ -346,7 +375,7 @@ footer{border-top:1px solid var(--line);background:#0c0d14;padding:56px 0 28px;m
       <a class="brand" href="#top"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></span>ХАРЛАН<span class="gold">МЕТАЛЛ</span></a>
       <p>B2B-маркетплейс металлопроката: единый каталог остатков поставщиков, AI-подбор и поставка по ГОСТ по всей России.</p>
     </div>
-    <div><h4>Каталог</h4><a href="#categories">Металлопрокат</a><a href="#categories">Листовой прокат</a><a href="#categories">Трубы</a><a href="#categories">Метизы</a><a href="#categories">Нержавеющая сталь</a><a href="#categories">Цветные металлы</a></div>
+    <div><h4>Каталог</h4><a href="https://www.harlansteel.ru/catalog">Металлопрокат</a><a href="https://www.harlansteel.ru/constructions">Готовые конструкции</a><a href="https://www.harlansteel.ru/catalog/listovoy-prokat">Листовой прокат</a><a href="https://www.harlansteel.ru/catalog/truby">Трубы</a><a href="https://www.harlansteel.ru/catalog/metizy">Метизы</a><a href="https://www.harlansteel.ru/catalog/nerzhaveyuschaya-stal">Нержавеющая</a></div>
     <div><h4>Компания</h4><a href="#ai">AI-подбор</a><a href="#why">Преимущества</a><a href="#how">Как заказать</a><a href="#order">Оставить заявку</a></div>
     <div><h4>Контакты</h4><a href="tel:+74993253969">+7 499 325-39-69</a><a href="mailto:info@harlansteel.ru">info@harlansteel.ru</a><a href="https://t.me/harlansteel" target="_blank" rel="noopener">Telegram: @harlansteel</a><span class="fi">Москва · доставка по РФ</span><span class="fi">Пн–Пт 9:00–18:00</span></div>
   </div>
