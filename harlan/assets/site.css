@@ -216,3 +216,43 @@ footer{border-top:1px solid var(--line);background:#0c0d14;padding:56px 0 28px;m
 @media(max-width:820px){.two{grid-template-columns:1fr}}
 .navlinks a.active{color:#fff}
 .navlinks a.active::after{width:100%}
+
+/* ===== каталог-лист + карточка товара ===== */
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--mut);margin-bottom:14px}
+.crumbs a:hover{color:var(--gold)}
+.crumbs .sep{opacity:.5}
+.filterbar{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 6px;padding:16px;border:1px solid var(--line2);border-radius:13px;background:var(--card)}
+.filterbar .fl{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--mut)}
+.filterbar select,.filterbar input{background:#0c0d14;border:1px solid var(--line2);border-radius:9px;padding:9px 12px;color:#fff;font-family:Manrope;font-size:14px;min-width:140px}
+.filterbar select:focus,.filterbar input:focus{border-color:var(--gold);outline:none}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.pgrid{grid-template-columns:1fr 1fr}}
+.pcard{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:var(--card);transition:transform .25s,border-color .25s}
+.pcard:hover{transform:translateY(-4px);border-color:var(--gold)}
+.pcard .ph{aspect-ratio:1/1;background:#fff;overflow:hidden}
+.pcard .ph img{width:100%;height:100%;object-fit:contain;transition:transform .4s}
+.pcard:hover .ph img{transform:scale(1.05)}
+.pcard .bd{padding:14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.pcard h3{font-size:14.5px;font-weight:700;line-height:1.25}
+.pcard .attrs{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.pcard .attrs span{font-size:11.5px;color:var(--soft);background:#0c0d14;border:1px solid var(--line2);border-radius:6px;padding:3px 7px}
+.pcard .pr{margin-top:auto;font-family:Oswald;font-size:16px;color:var(--gold)}
+.pcard .pr small{color:var(--mut);font-family:Manrope;font-size:12px}
+.pcard .pbtn{margin-top:8px;text-align:center;background:rgba(232,184,109,.12);color:var(--gold);border:1px solid var(--line);border-radius:9px;padding:9px;font-weight:700;font-size:13.5px;transition:.2s}
+.pcard:hover .pbtn{background:var(--goldgrad);color:#0a0a10}
+/* PDP */
+.pdp{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;margin-top:24px;align-items:start}
+@media(max-width:820px){.pdp{grid-template-columns:1fr}}
+.pdp-media{border:1px solid var(--line2);border-radius:18px;overflow:hidden;background:#fff;aspect-ratio:1/1}
+.pdp-media img{width:100%;height:100%;object-fit:contain}
+.pdp-info h1{font-family:Oswald;font-size:clamp(26px,3.6vw,42px);line-height:1.05;text-transform:uppercase;letter-spacing:.4px}
+.pdp-grade{display:inline-block;margin-top:10px;font-size:13px;color:var(--gold);border:1px solid var(--line);border-radius:100px;padding:5px 13px}
+.specs{width:100%;border-collapse:collapse;margin:22px 0}
+.specs tr{border-bottom:1px solid var(--line2)}
+.specs td{padding:12px 4px;font-size:15px}
+.specs td:first-child{color:var(--mut);width:45%}
+.specs td:last-child{font-weight:600}
+.pdp-price{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:18px 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.pdp-price .big{font-family:Oswald;font-size:26px;color:var(--gold)}
+.pdp-cta{display:flex;gap:12px;flex-wrap:wrap}
