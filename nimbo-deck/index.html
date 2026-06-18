@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NIMBO — AI-агентство роста · презентация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d11;--bg2:#11151b;--card:#161b22;--line:#252c36;--ink:#eef2f7;--mut:#9aa4b2;--acc:#e8632e;--acc2:#ffc14d;--ok:#3fb950;--blue:#4b9fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.deck{scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh}
+.slide{scroll-snap-align:start;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7vh 7vw;position:relative;border-bottom:1px solid var(--line)}
+h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase;line-height:1.05;letter-spacing:.5px;font-weight:600}
+.eyebrow{color:var(--acc2);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:14px;margin-bottom:18px}
+.big{font-size:clamp(40px,7vw,86px)}
+.h2{font-size:clamp(30px,5vw,56px);margin-bottom:28px}
+p{color:#cdd4dd;font-size:clamp(16px,2vw,21px);line-height:1.6;max-width:60ch}
+.mut{color:var(--mut)}
+.acc{color:var(--acc)}.acc2{color:var(--acc2)}.ok{color:var(--ok)}
+.grid{display:grid;gap:16px;margin-top:28px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:780px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{font-size:20px;margin-bottom:10px;letter-spacing:.4px}
+.card p{font-size:15px}
+.tag{display:inline-block;background:rgba(232,99,46,.15);color:var(--acc2);border:1px solid rgba(232,99,46,.3);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;margin:4px 6px 4px 0}
+.stat{font-family:'Oswald',sans-serif;font-size:clamp(34px,5vw,56px);color:#fff;line-height:1}
+.statlbl{color:var(--mut);font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+table{width:100%;border-collapse:collapse;margin-top:20px;font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{color:var(--acc2);text-transform:uppercase;font-size:12px;letter-spacing:1px}
+td.win{color:var(--ok);font-weight:700}
+.num{position:absolute;top:24px;right:32px;color:var(--mut);font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:2px}
+.logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;letter-spacing:2px}
+.logo b{color:var(--acc)}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px;font-family:'Oswald',sans-serif;font-size:clamp(15px,2vw,22px);letter-spacing:.5px}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 16px}
+.flow i{color:var(--acc);font-style:normal}
+.hint{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);color:var(--mut);font-size:13px;background:rgba(11,13,17,.7);padding:6px 14px;border-radius:999px;border:1px solid var(--line);z-index:9}
+.pill{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.brain{background:linear-gradient(135deg,rgba(232,99,46,.12),rgba(75,159,255,.1));border:1px solid var(--line);border-radius:20px;padding:30px;margin-top:24px;text-align:center}
+.brain .core{font-family:'Oswald',sans-serif;font-size:clamp(26px,4vw,40px);color:#fff}
+.brain .mods{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.brain .mods span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:700}
+</style></head>
+<body><div class="deck">
+
+<section class="slide" style="background:radial-gradient(1200px 600px at 70% 20%,rgba(232,99,46,.18),transparent),var(--bg)">
+  <div class="num">01</div>
+  <div class="logo">NIM<b>BO</b></div>
+  <div class="eyebrow" style="margin-top:30px">AI-агентство роста для малого бизнеса</div>
+  <h1 class="big">Готовый <span class="acc">AI-сотрудник</span><br>для любого бизнеса</h1>
+  <p style="margin-top:24px">Он звонит, принимает звонки, записывает клиентов, ведёт CRM, делает сайт и SEO — <b>24/7, под вашу нишу</b>. Не «ещё один бот» — целый движок роста.</p>
+  <div class="pill" style="margin-top:30px">
+    <span class="tag">Живой русский голос</span><span class="tag">Звонки вход + исход</span><span class="tag">CRM + дожим</span><span class="tag">Сайт + SEO</span><span class="tag">Любая ниша</span>
+  </div>
+</section>
+
+<section class="slide"><div class="num">02 · Миссия</div>
+  <div class="eyebrow">Миссия</div>
+  <h2 class="big">Команда уровня корпорации —<br>за цену <span class="acc2">одного сотрудника</span></h2>
+  <p style="margin-top:24px">Малый бизнес теряет клиентов не потому что плохо работает, а потому что <b>некому взять трубку, перезвонить, записать</b> и сделать так, чтобы его находили. Мы закрываем это AI-системой, которая работает круглосуточно, не выгорает и <b class="ok">учится с каждым диалогом</b>.</p>
+  <p class="mut" style="margin-top:20px">Видение: стать операционной системой роста для 100 000 малых бизнесов рунета.</p>
+</section>
+
+<section class="slide"><div class="num">03 · Проблема</div>
+  <div class="eyebrow">Боль рынка</div>
+  <h2 class="h2">Деньги утекают каждый день</h2>
+  <div class="grid g4">
+    <div class="card"><div class="stat acc">60–80%</div><div class="statlbl">звонков теряется (занят/ночь/выходной)</div></div>
+    <div class="card"><div class="stat">25–57%</div><div class="statlbl">no-show снижает AI-напоминание</div></div>
+    <div class="card"><div class="stat">Нет</div><div class="statlbl">сайта или он «жидкий» → уход к конкуренту</div></div>
+    <div class="card"><div class="stat">Дорого</div><div class="statlbl">админ + маркетолог + разработчик</div></div>
+  </div>
+  <p style="margin-top:26px">Каждый пропущенный звонок в услугах = упущенная сделка. Каждый лид без дожима = деньги конкуренту.</p>
+</section>
+
+<section class="slide"><div class="num">04 · Рынок</div>
+  <div class="eyebrow">Рынок и момент</div>
+  <h2 class="h2">Окно открыто <span class="acc">сейчас</span></h2>
+  <div class="grid g3">
+    <div class="card"><div class="stat acc2">$4.8 млрд</div><div class="statlbl">рынок AI-голоса в 2026</div></div>
+    <div class="card"><div class="stat ok">$47.5 млрд</div><div class="statlbl">прогноз к 2034</div></div>
+    <div class="card"><div class="stat">+34.8%</div><div class="statlbl">в год (CAGR)</div></div>
+  </div>
+  <p style="margin-top:26px">Запад строит для англо-рынка и продаёт «кусочки». <b class="acc2">Рунет — почти пустой.</b> Побеждает тот, кто даёт бизнесу весь движок под ключ, на его языке и под его нишу.</p>
+</section>
+
+<section class="slide"><div class="num">05 · Что умеем</div>
+  <div class="eyebrow">Возможности · уже работает</div>
+  <h2 class="h2">Полный цикл, не пазл</h2>
+  <div class="grid g3">
+    <div class="card"><h3>🗣 Голос</h3><p>Живой русский голос (~0.5с), приём и обзвон, перебивания, детект автоответчика. ElevenLabs + Voximplant (РФ).</p></div>
+    <div class="card"><h3>🧠 Мозг-продавец</h3><p>Трейси/SPIN, отработка возражений, апсейл, выход на ЛПР, адаптация под нишу.</p></div>
+    <div class="card"><h3>🔁 Дожим</h3><p>Нарастающие ретраи, рабочие часы, память разговоров, авто-напоминания «когда+зачем».</p></div>
+    <div class="card"><h3>📊 CRM</h3><p>Канбан, карточка-досье, таймлайн касаний, журнал звонков с расшифровкой.</p></div>
+    <div class="card"><h3>💬 Омниканал</h3><p>Голос · SMS · Telegram · WhatsApp · email · MAX · ВК — единый тред.</p></div>
+    <div class="card"><h3>🌐 Сайт + SEO + трекинг</h3><p>Фабрика лендингов под нишу, локальное SEO, счётчики «зашёл/смотрит/сколько».</p></div>
+  </div>
+</section>
+
+<section class="slide"><div class="num">06 · Конкуренты</div>
+  <div class="eyebrow">Анализ рынка</div>
+  <h2 class="h2">Они — кусочки. Мы — <span class="acc">картинка</span></h2>
+  <table>
+    <tr><th>Игрок</th><th>Что</th><th>Слабость для нас</th></tr>
+    <tr><td>Vapi / Retell</td><td>голос-слой для разработчиков</td><td>не «под ключ», англо-рынок</td></tr>
+    <tr><td>Bland</td><td>масс-обзвон</td><td>только звонки, US</td></tr>
+    <tr><td>Synthflow</td><td>голос+CRM (SMB)</td><td>нет сайтов/SEO, не RU</td></tr>
+    <tr><td>AI-ресепшн ($49–95)</td><td>приём входящих</td><td>только приём, нет роста</td></tr>
+    <tr><td class="win">NIMBO</td><td class="win">лиды→сайт→звонки→CRM→дожим→повтор</td><td class="win">RU-first, всё-в-одном, под любую нишу</td></tr>
+  </table>
+</section>
+
+<section class="slide" style="background:radial-gradient(900px 500px at 50% 30%,rgba(75,159,255,.12),transparent),var(--bg)"><div class="num">07 · Продукт</div>
+  <div class="eyebrow">Флагман</div>
+  <h2 class="big">NIMBO <span class="acc">BRAIN</span></h2>
+  <p style="margin-top:14px">Одно ядро + сменные профили ниши. Вход и выход — по всем каналам.</p>
+  <div class="brain">
+    <div class="flow" style="justify-content:center">
+      <span>📞 звонок</span><span>💬 SMS/TG/WA</span><span>✉️ email</span><span>🌐 сайт</span> <i>→</i>
+      <span style="background:linear-gradient(135deg,var(--acc),#c64a1c);border:0;color:#fff">🧠 NIMBO BRAIN</span> <i>→</i>
+      <span>записал</span><span>ответил</span><span>дожал</span>
+    </div>
+    <div class="mods">
+      <span>ПРИЁМ</span><span>ОБЗВОН</span><span>ЗАПИСЬ</span><span>КВАЛИФИКАЦИЯ</span><span>CRM</span><span>САЙТ</span><span>SEO</span><span>КОНТЕНТ</span><span>АНАЛИТИКА</span><span>ОБУЧЕНИЕ</span>
+    </div>
+  </div>
+  <p class="mut" style="margin-top:20px">Завести новую нишу = заполнить профиль (скрипт, услуги, тон, шаблон сайта), а не переписывать систему.</p>
+</section>
+
+<section class="slide"><div class="num">08 · Что делает</div>
+  <div class="eyebrow">Nimbo Brain в работе</div>
+  <h2 class="h2">7 функций одного «сотрудника»</h2>
+  <div class="grid g3">
+    <div class="card"><h3>1 · Принимает 24/7</h3><p>Узнаёт звонящего по номеру, отвечает, записывает, передаёт владельцу суть. 90–95% автономно.</p></div>
+    <div class="card"><h3>2 · Сам обзванивает</h3><p>Лиды, база, «спящие» клиенты. Квалифицирует и дожимает по расписанию.</p></div>
+    <div class="card"><h3>3 · Записывает на услугу</h3><p>Календарь + напоминания → меньше окон, меньше no-show.</p></div>
+    <div class="card"><h3>4 · Ведёт CRM</h3><p>Карточка, таймлайн, омниканальный чат, аналитика.</p></div>
+    <div class="card"><h3>5 · Делает сайт + SEO</h3><p>Лендинг под нишу, локальное SEO, трекинг визитов.</p></div>
+    <div class="card"><h3>6 · Контент</h3><p>Посты, тексты, видео-крео под нишу.</p></div>
+    <div class="card"><h3>7 · Учится</h3><p>Каждый диалог → вывод → улучшение скрипта. A/B офферов.</p></div>
+  </div>
+</section>
+
+<section class="slide"><div class="num">09 · Ниши</div>
+  <div class="eyebrow">Один движок — любая ниша</div>
+  <h2 class="h2">Ниш бесконечно много</h2>
+  <div class="pill">
+    <span class="tag">Автосервис</span><span class="tag">Шиномонтаж</span><span class="tag">Автомойка/детейлинг</span><span class="tag">Барбершоп/салон</span><span class="tag">Ногти/косметология</span><span class="tag">Стоматология/мед</span><span class="tag">Ветклиника</span><span class="tag">Кафе/рестораны/доставка</span><span class="tag">Фитнес/студии</span><span class="tag">Школы/репетиторы</span><span class="tag">Юристы/бухгалтеры</span><span class="tag">Недвижимость</span><span class="tag">Стройка/ремонт/клининг</span><span class="tag">Автошколы/курсы</span><span class="tag">Магазины/e-com</span><span class="tag">Отели/туризм</span><span class="tag">Сервисные центры</span><span class="tag">B2B/SaaS</span>
+  </div>
+  <p style="margin-top:26px"><b class="acc2">Чужая ниша — не проблема, а новый рынок.</b> Система раскладывает лиды по нише и адаптирует оффер, голос и сайт.</p>
+</section>
+
+<section class="slide"><div class="num">10 · Деньги</div>
+  <div class="eyebrow">Монетизация · повторяемая выручка</div>
+  <h2 class="h2">Setup + подписка + usage</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Точка входа</h3><p>Сайт под ключ — <b>25 000 ₽</b> разово.</p></div>
+    <div class="card"><h3>AI-приём звонков</h3><p>от <b>6 900 ₽/мес</b> + минуты.</p></div>
+    <div class="card"><h3>AI-обзвон / лидген</h3><p>за пакет / за результат.</p></div>
+    <div class="card"><h3>CRM + омниканал + дожим</h3><p>подписка.</p></div>
+    <div class="card"><h3>SEO + контент</h3><p>подписка.</p></div>
+    <div class="card" style="border-color:var(--acc)"><h3 class="acc2">Полный AI-сотрудник</h3><p><b>19 900–49 900 ₽/мес</b> под нишу/объём. + White-label для агентств.</p></div>
+  </div>
+</section>
+
+<section class="slide"><div class="num">11 · Экономика</div>
+  <div class="eyebrow">Юнит-экономика · наш ров</div>
+  <h2 class="h2">Себестоимость → почти ноль</h2>
+  <div class="grid g3">
+    <div class="card"><div class="stat acc">~10–12 ₽</div><div class="statlbl">себестоимость минуты звонка</div></div>
+    <div class="card"><div class="stat ok">~0 ₽</div><div class="statlbl">сайт (генерится авто, хостинг free)</div></div>
+    <div class="card"><div class="stat">0 ₽</div><div class="statlbl">анализ звонка (нативный ElevenLabs)</div></div>
+  </div>
+  <p style="margin-top:26px">Клиент платит за <b>результат</b> (клиенты/записи), а не за минуты. Один движок на все ниши → предельная стоимость нового клиента → 0. <b class="ok">Высокая маржа, высокий LTV.</b></p>
+</section>
+
+<section class="slide"><div class="num">12 · Ров</div>
+  <div class="eyebrow">Почему именно мы</div>
+  <h2 class="h2">6 преимуществ</h2>
+  <div class="grid g3">
+    <div class="card"><h3>🇷🇺 RU-стек</h3><p>Голос + РФ-телефония + каналы рунета. Барьер для западных.</p></div>
+    <div class="card"><h3>🧩 Всё-в-одном</h3><p>Полный цикл роста, не пазл из сервисов.</p></div>
+    <div class="card"><h3>🎯 Сами приводим спрос</h3><p>Находим бизнес, делаем сайт, звоним продаём — продукт продаёт сам себя.</p></div>
+    <div class="card"><h3>⚙️ Ниша-движок</h3><p>Масштаб без переписывания.</p></div>
+    <div class="card"><h3>📈 Самообучение</h3><p>Каждый диалог улучшает систему.</p></div>
+    <div class="card"><h3>⚡ Скорость</h3><p>Стек уже работает, не «в разработке».</p></div>
+  </div>
+</section>
+
+<section class="slide"><div class="num">13 · План</div>
+  <div class="eyebrow">Дорожная карта</div>
+  <h2 class="h2">От стека → к 1000 клиентов</h2>
+  <div class="grid g4">
+    <div class="card"><h3 class="ok">Сейчас</h3><p>Голос, дожим, CRM, фабрика сайтов, трекинг, алерты — работает.</p></div>
+    <div class="card"><h3>30 дней</h3><p>Эталон сайтов, запись на услугу, омниканал, первые платящие в 2–3 нишах.</p></div>
+    <div class="card"><h3>90 дней</h3><p>10 профилей ниш, дашборд клиента, биллинг, кейсы с цифрами.</p></div>
+    <div class="card"><h3>Год</h3><p>White-label, партнёрская сеть, 1000+ клиентов, выход за рунет.</p></div>
+  </div>
+</section>
+
+<section class="slide" style="background:radial-gradient(1000px 600px at 50% 50%,rgba(232,99,46,.16),transparent),var(--bg);text-align:center;align-items:center"><div class="num">14</div>
+  <div class="logo" style="font-size:30px">NIM<b>BO</b></div>
+  <h2 class="big" style="margin-top:24px">Не сайт. Не бот.<br><span class="acc">Движок роста.</span></h2>
+  <p style="margin:24px auto 0">Готовый AI-сотрудник для любого бизнеса. Уже работает. Готов к запуску по нишам.</p>
+  <p class="mut" style="margin:18px auto 0">Полная стратегия: NIMBO_AGENCY_MASTER.md</p>
+</section>
+
+</div>
+<div class="hint">↓ листай колесом / стрелками · 14 слайдов</div>
+<script>
+addEventListener('keydown',e=>{const d=document.querySelector('.deck');const h=innerHeight;
+ if(e.key==='ArrowDown'||e.key==='PageDown'){d.scrollBy({top:h,behavior:'smooth'});e.preventDefault()}
+ if(e.key==='ArrowUp'||e.key==='PageUp'){d.scrollBy({top:-h,behavior:'smooth'});e.preventDefault()}});
+</script>
+</body></html>
