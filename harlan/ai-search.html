@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI-подбор металлопроката по смете и голосу — Харланметалл</title>
+<meta name="description" content="AI-подбор металлопроката: опишите задачу словами, голосом или загрузите смету — найдём позиции, подберём аналоги и соберём спецификацию с ценами и наличием.">
+<meta name="theme-color" content="#0a0a10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="topbar"><div class="wrap"><div class="in">
+  <span>Металлопрокат по ГОСТ · Москва и вся Россия</span>
+  <div class="r"><span>Пн–Пт 9:00–18:00</span><span>Оплата с НДС · безнал</span><a href="tel:+74993253969">+7 499 325-39-69</a></div>
+</div></div></div>
+<header><div class="wrap"><nav>
+  <a class="brand" href="index.html"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></span>ХАРЛАН<span class="gold">МЕТАЛЛ</span></a>
+  <div class="navlinks"><a href="catalog.html">Каталог</a><a href="constructions.html">Конструкции</a><a href="ai-search.html" class="active">AI-подбор</a><a href="delivery.html">Доставка</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a></div>
+  <div class="spacer"></div>
+  <a class="hphone gold" href="tel:+74993253969">+7 499 325-39-69</a>
+  <a class="hbtn" href="ai-search.html">Подобрать металл</a>
+</nav></div></header>
+<main>
+<section class="phero"><img class="bg" src="assets/s3.jpg" alt="" aria-hidden="true">
+  <div class="wrap in"><div class="kick reveal">AI-подбор</div>
+  <h1 class="reveal">Опишите задачу — <span class="gradtext">найдём металл</span></h1>
+  <p class="reveal">Не нужно знать точный ГОСТ и сортамент. Напишите словами, продиктуйте голосом или загрузите смету — AI распознает позиции и соберёт спецификацию.</p>
+  <div class="aisearch reveal" role="search" style="margin-top:26px">
+    <div class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg> AI-подбор металлопроката</div>
+    <div class="row">
+      <label class="field" for="q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="q" type="text" placeholder="Напр.: труба 57×3,5 ГОСТ 8732 или «лист 10мм для основания станка»" aria-label="Поиск по каталогу металлопроката"></label>
+      <button class="mic" type="button" aria-label="Голосовой поиск"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+      <button class="go" type="button" onclick="document.getElementById('q').focus()"><span>Найти</span> →</button>
+    </div>
+    <div class="chips">
+      <span class="chip">труба 57×3,5 ГОСТ 8732</span><span class="chip">лист 10мм</span><span class="chip">арматура А500С 12</span><span class="chip">уголок 50×50</span><span class="chip">круг ст45</span>
+    </div>
+  </div></div></section>
+<section><div class="wrap"><div class="kick reveal">Как работает</div><h2 class="h2 reveal">Четыре шага к спецификации</h2>
+  <div class="steps">
+    <div class="step reveal"><div class="n">01</div><h3>Запрос</h3><p>Текст, голос или файл — смета, чертёж, переписка. Понимаем «человеческий» язык.</p></div>
+    <div class="step reveal"><div class="n">02</div><h3>Распознавание</h3><p>AI извлекает позиции, марки, размеры и сопоставляет с каталогом по ГОСТ.</p></div>
+    <div class="step reveal"><div class="n">03</div><h3>Аналоги</h3><p>Чего-то нет — предложим замену по марке и размеру, не теряя задачу.</p></div>
+    <div class="step reveal"><div class="n">04</div><h3>Спецификация</h3><p>Готовый список с наличием, ценой и сроком — сразу к счёту.</p></div>
+  </div></div></section>
+<section style="background:var(--bg2)"><div class="wrap"><div class="kick reveal">Возможности</div><h2 class="h2 reveal">Зачем это снабженцу</h2>
+  <div class="why">
+    <div class="w reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 3h9l5 5v13H5z"/></svg></div><h3>Поиск по смете</h3><p>Загрузите файл — извлечём все позиции автоматически, без ручного ввода.</p></div>
+    <div class="w reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h3>Голосовой ввод</h3><p>Продиктуйте позицию прямо с площадки — удобно в цеху и в дороге.</p></div>
+    <div class="w reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Подбор аналогов</h3><p>Алгоритм знает взаимозаменяемость марок и размеров.</p></div>
+    <div class="w reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Экономия времени</h3><p>Минуты вместо часов на сборку заявки из десятков позиций.</p></div>
+  </div></div></section>
+<section style="padding-bottom:0"><div class="cta reveal"><img class="bg" src="assets/s3.jpg" alt=""><div class="in">
+  <h2>Попробуйте <span class="gradtext">AI-подбор</span></h2>
+  <p>Опишите задачу — соберём спецификацию с наличием и ценой. Это бесплатно и ни к чему не обязывает.</p>
+  <div class="btns"><a class="btn-lg btn-gold" href="https://www.harlansteel.ru/ai-search">Открыть AI-поиск</a><a class="btn-lg btn-ghost" href="tel:+74993253969">+7 499 325-39-69</a></div>
+</div></div></section>
+</main>
+<footer><div class="wrap">
+  <div class="foot">
+    <div>
+      <a class="brand" href="index.html"><span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></span>ХАРЛАН<span class="gold">МЕТАЛЛ</span></a>
+      <p>B2B-маркетплейс металлопроката: единый каталог остатков поставщиков, AI-подбор и поставка по ГОСТ по всей России.</p>
+    </div>
+    <div><h4>Каталог</h4><a href="https://www.harlansteel.ru/catalog">Металлопрокат</a><a href="https://www.harlansteel.ru/constructions">Готовые конструкции</a><a href="catalog.html">Все категории</a><a href="https://www.harlansteel.ru/catalog/truby">Трубы</a><a href="https://www.harlansteel.ru/catalog/metizy">Метизы</a></div>
+    <div><h4>Компания</h4><a href="ai-search.html">AI-подбор</a><a href="delivery.html">Доставка и оплата</a><a href="about.html">О компании</a><a href="suppliers.html">Поставщикам</a><a href="contacts.html">Контакты</a></div>
+    <div><h4>Контакты</h4><a href="tel:+74993253969">+7 499 325-39-69</a><a href="mailto:info@harlansteel.ru">info@harlansteel.ru</a><a href="https://t.me/harlansteel" target="_blank" rel="noopener">Telegram: @harlansteel</a><span class="fi">Москва · доставка по РФ</span><span class="fi">Пн–Пт 9:00–18:00</span></div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Харланметалл · Металлопрокат по ГОСТ · ИНН / ОГРН — реквизиты по запросу</span>
+    <span>Цены не являются публичной офертой</span>
+  </div>
+</div></footer>
+<div class="callbar">
+  <a class="c2" href="https://t.me/harlansteel" target="_blank" rel="noopener">Telegram</a>
+  <a class="c1" href="tel:+74993253969">Позвонить</a>
+</div>
+<script>
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)});
+</script>
+</body>
+</html>
