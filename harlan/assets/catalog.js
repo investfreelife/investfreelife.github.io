@@ -100,7 +100,7 @@
 
   /* ---------- PRODUCT ---------- */
   function renderProduct(el){
-    var id=+qs('id'); var p=null;
+    var id=qs('id'); var p=null;
     for(var i=0;i<DATA.prods.length;i++){if(DATA.prods[i].i===id){p=DATA.prods[i];break;}}
     if(!p){el.innerHTML='<p class="lead">Товар не найден. <a href="catalog.html">Открыть каталог</a></p>';return;}
     var c=DATA.catById[p.c]; var anc=c?ancestry(c.id):[];
