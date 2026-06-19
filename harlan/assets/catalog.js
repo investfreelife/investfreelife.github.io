@@ -48,21 +48,34 @@
   }
 
   /* ===== ФАСЕТЫ ===== */
+  function gv(k){return function(p){return p[k];};}
   var FDEFS=[
-    {k:'g',label:'Марка стали'},{k:'d',label:'Диаметр, мм',num:1},{k:'t',label:'Толщина / стенка, мм',num:1},
-    {k:'sq',label:'Сечение, мм'},{k:'w',label:'Ширина, мм',num:1},{k:'l',label:'Длина, мм',num:1},
-    {k:'gost',label:'ГОСТ / стандарт'},{k:'vid',label:'Вид'},{k:'coat',label:'Покрытие'},{k:'surf',label:'Поверхность'}
+    {k:'_sub',label:'Раздел',get:function(p){var c=DATA.catById[p.c];return c?c.n:null;}},
+    {k:'g',label:'Марка стали',get:gv('g')},
+    {k:'d',label:'Диаметр, мм',num:1,get:gv('d')},
+    {k:'t',label:'Толщина / стенка, мм',num:1,get:gv('t')},
+    {k:'sq',label:'Сечение, мм',get:gv('sq')},
+    {k:'w',label:'Ширина, мм',num:1,get:gv('w')},
+    {k:'l',label:'Длина, мм',num:1,get:gv('l')},
+    {k:'_ral',label:'Цвет (RAL)',get:function(p){var m=(p.n||'').match(/RAL\s?(\d{3,4})/i);return m?'RAL '+m[1]:null;}},
+    {k:'_dn',label:'Типоразмер D, мм',num:1,get:function(p){var m=(p.n||'').match(/\bD\s?(\d{2,4})\b/);return m?parseInt(m[1]):null;}},
+    {k:'_sz',label:'Размер',get:function(p){var m=(p.n||'').match(/\b(\d{2,4}\/\d{2,4})\b/);return m?m[1]:null;}},
+    {k:'gost',label:'ГОСТ / стандарт',get:gv('gost')},
+    {k:'vid',label:'Вид',get:gv('vid')},
+    {k:'coat',label:'Покрытие',get:gv('coat')},
+    {k:'surf',label:'Поверхность',get:gv('surf')},
+    {k:'p',label:'Цена, ₽',num:1,get:gv('p')}
   ];
   function buildFacets(items){
     var out=[];
     FDEFS.forEach(function(d){
-      var vals={};
-      items.forEach(function(p){var v=p[d.k];if(v!=null&&v!=='')vals[v]=(vals[v]||0)+1;});
+      var vals={},getf=d.get;
+      items.forEach(function(p){var v=getf(p);if(v!=null&&v!=='')vals[v]=(vals[v]||0)+1;});
       var keys=Object.keys(vals);
       if(keys.length<2)return;
       if(d.num)keys.sort(function(a,b){return parseFloat(a)-parseFloat(b);});
       else keys.sort(function(a,b){return vals[b]-vals[a];});
-      out.push({k:d.k,label:d.label,num:d.num,vals:keys,counts:vals,range:d.num&&keys.length>26});
+      out.push({k:d.k,label:d.label,num:d.num,get:getf,vals:keys,counts:vals,range:d.num&&keys.length>26});
     });
     return out;
   }
@@ -75,6 +88,7 @@
     var cr=[{t:'Главная',href:'index.html'},{t:'Каталог',href:'catalog.html'}];
     anc.forEach(function(a,i){cr.push(i<anc.length-1?{t:a.n,href:'category.html?cat='+encodeURIComponent(a.s)}:{t:a.n});});
     var facets=buildFacets(items);
+    var fmap={};facets.forEach(function(f){fmap[f.k]=f;});
     var sel={}, rng={};
     var subHtml=subs.length?('<div class="poplinks" style="margin-top:16px"><span class="pl-label">Подразделы:</span>'+subs.map(function(s){return '<a href="category.html?cat='+encodeURIComponent(s.s)+'">'+esc(s.n)+' ('+s.cnt+')</a>';}).join('')+'</div>'):'';
     // панель фасетов
@@ -109,8 +123,8 @@
     el.innerHTML='<section style="padding-top:30px"><div class="wrap">'+head+layout+'</div></section>';
     var state={sort:'',pp:48,page:1};
     function pass(p){
-      for(var k in sel){if(sel[k].size&&!sel[k].has(String(p[k])))return false;}
-      for(var k2 in rng){var r=rng[k2];var v=parseFloat(p[k2]);if(r.min!=null&&!(v>=r.min))return false;if(r.max!=null&&!(v<=r.max))return false;}
+      for(var k in sel){if(sel[k].size){var vv=fmap[k]?fmap[k].get(p):p[k];if(!sel[k].has(String(vv)))return false;}}
+      for(var k2 in rng){var r=rng[k2];var v=parseFloat(fmap[k2]?fmap[k2].get(p):p[k2]);if(r.min!=null&&!(v>=r.min))return false;if(r.max!=null&&!(v<=r.max))return false;}
       return true;
     }
     function draw(){
