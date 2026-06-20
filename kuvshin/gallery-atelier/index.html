@@ -6,6 +6,8 @@
 <title>Студия живописи КУВШИН — школа реалистической живописи в Москве, м. Таганская</title>
 <meta name="description" content="КУВШИН — студия и школа реалистической живописи в центре Москвы (м. Таганская). Учим писать маслом с нуля: рисунок, живопись, композиция, пленэры, мастер-классы, подготовка к поступлению в вузы. Запишитесь на пробное занятие.">
 <link rel="canonical" href="https://investfreelife.github.io/kuvshin/gallery-atelier/">
+<link rel="icon" type="image/png" href="photos/favicon.png">
+<link rel="apple-touch-icon" href="photos/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Студия живописи КУВШИН — реалистическая живопись маслом, Москва">
 <meta property="og:description" content="Учим писать маслом с нуля. Рисунок, живопись, композиция, пленэры, подготовка в вузы. Центр Москвы, м. Таганская.">
@@ -36,9 +38,11 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;l
 /* header */
 header{position:sticky;top:0;z-index:50;background:rgba(246,242,234,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line2)}
 nav{display:flex;align-items:center;gap:22px;height:74px}
-.brand{display:flex;flex-direction:column;line-height:1;margin-right:auto}
+.brand{display:flex;flex-direction:row;align-items:center;gap:12px;line-height:1;margin-right:auto}
+.brand .blogo{height:46px;width:auto;display:block}
+.brand .bt{display:flex;flex-direction:column}
 .brand b{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;letter-spacing:1px}
-.brand span{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--mut);margin-top:3px}
+.brand .bt span{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--mut);margin-top:3px}
 .navlinks{display:flex;gap:24px;font-size:14.5px;font-weight:600;color:var(--soft)}
 .navlinks a{white-space:nowrap}.navlinks a:hover{color:var(--gold)}
 .hphone{font-weight:800;white-space:nowrap;font-size:15px}
@@ -134,7 +138,7 @@ footer a:hover{color:var(--gold2)}
 <body>
 <header>
   <div class="wrap"><nav>
-    <a class="brand" href="#top"><b>КУВШИН</b><span>студия живописи</span></a>
+    <a class="brand" href="#top"><img class="blogo" src="photos/logo.webp" alt="Логотип студии живописи КУВШИН"><span class="bt"><b>КУВШИН</b><span>студия живописи</span></span></a>
     <div class="navlinks">
       <a href="#study">Чему учим</a>
       <a href="#method">Методика</a>
@@ -150,7 +154,7 @@ footer a:hover{color:var(--gold2)}
 
 <a id="top"></a>
 <section class="hero" style="padding:0">
-  <img class="bg" src="photos/hero.webp" alt="Студия живописи КУВШИН — мастерская в центре Москвы">
+  <img class="bg" src="photos/hero.webp" alt="Преподаватель студии КУВШИН ведёт занятие по живописи с учениками в мастерской">
   <div class="wrap in">
     <div class="eyebrow">Школа реалистической живописи · Москва, м. Таганская</div>
     <h1>Научитесь писать <i>маслом</i><br>как старые мастера</h1>
