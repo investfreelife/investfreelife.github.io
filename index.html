@@ -2,6 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(109998862,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109998862" style="position:absolute;left:-9999px" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nimbo — студия сайтов, лендингов, Telegram-ботов и автоматизации</title>
 <meta name="description" content="Nimbo — цифровая студия: сайты и лендинги с 3D-анимацией, Telegram-боты, парсеры данных и автоматизация под ключ. Инженерия и дизайн уровня Awwwards, измеримый результат.">
@@ -13,7 +17,8 @@
 <meta property="og:description" content="Сайты с 3D, боты, парсеры, автоматизация — которые приносят деньги.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://investfreelife.github.io/">
-<meta property="og:image" content="https://investfreelife.github.io/og.svg">
+<meta property="og:image" content="https://investfreelife.github.io/og.jpg">
+<meta name="twitter:image" content="https://investfreelife.github.io/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%239b6bff'/%3E%3Cstop offset='1' stop-color='%234fe0d0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23080a12'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='url(%23g)' stroke-width='6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -209,8 +214,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 50px;color:var(--mut);fon
 <section id="contact" class="cta">
   <h2 data-reveal>Расскажите о <span class="g">задаче</span></h2>
   <p data-reveal>Предложим решение и сроки. Бесплатно и без воды.</p>
-  <a class="btn btn-p magnet" id="tg2" data-reveal style="padding:18px 40px;font-size:18px">Написать в Telegram →</a>
-  <div class="note">⚠️ Заглушка контакта: впиши свой Telegram в <code>config</code> внизу <code>index.html</code> (<code>TELEGRAM_URL</code>). Сейчас <code>@CHANGE_ME</code>.</div>
+  <div data-reveal style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+    <a class="btn btn-p magnet" id="tg2" href="https://t.me/stolica_dostavka_bot?start=nimbo_studio" target="_blank" rel="noopener" onclick="try{ym(109998862,'reachGoal','cta_telegram')}catch(e){}" style="padding:18px 40px;font-size:18px">Написать в Telegram →</a>
+    <a class="btn magnet" href="tel:+79011479079" onclick="try{ym(109998862,'reachGoal','cta_call')}catch(e){}" style="padding:18px 40px;font-size:18px">📞 +7 901 147-90-79</a>
+  </div>
 </section>
 
 <footer><div class="wrap foot">
@@ -220,16 +227,15 @@ footer{border-top:1px solid var(--line);padding:60px 0 50px;color:var(--mut);fon
 </div></footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
 
 <script>
-// ===== КОНТАКТ: замени на свой Telegram =====
-const TELEGRAM_URL = "https://t.me/CHANGE_ME";
-// ============================================
-document.querySelectorAll('#tg1,#tg2').forEach(a=>a.href=TELEGRAM_URL);
+// ===== КОНТАКТ Nimbo =====
+const TELEGRAM_URL = "https://t.me/stolica_dostavka_bot?start=nimbo_studio";
+document.querySelectorAll('#tg1,#tg2').forEach(a=>{a.href=TELEGRAM_URL;a.target="_blank";a.rel="noopener";});
 const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
 // marquee build
