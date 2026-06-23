@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ads formatVersion="3" target="Avito.ru">
+  <Ad>
+    <Id>nimbo-site-1</Id>
+    <AllowEmail>Yes</AllowEmail>
+    <Address>Москва</Address>
+    <Category>Предложение услуг</Category>
+    <!-- ⚠️ ПОДКАТЕГОРИЮ подтвердить валидатором Авито (autoload.avito.ru/format/xmlcheck):
+         для веб-разработки обычно ветка «IT, интернет, телеком → Создание и продвижение сайтов».
+         Ниже типичные теги услуг — при ошибке валидатор подскажет точные. -->
+    <Title>Создание сайта под ключ для бизнеса — лендинг, сайт</Title>
+    <Price>15000</Price>
+    <Description><![CDATA[
+Студия Nimbo — премиум-сайты и продающие лендинги под ключ для малого бизнеса. Дизайн уровня топ-агентств, не шаблон.
+
+Что получите:
+• Готовый сайт под ключ за несколько дней, фикс-цена без сюрпризов
+• Конверсионная структура: заявки и звонки, а не «сайт для галочки»
+• SEO под Яндекс (гео, скорость, поведенческие) — вас находят клиенты
+• Адаптив под мобильные, быстрая загрузка
+• Перенос на ваш домен + обучение
+
+Услуги и цены:
+• Лендинг / продающий одностраничник — от 15 000 ₽
+• Сайт-визитка / корпоративный сайт — от 25 000 ₽
+• Интернет-магазин, редизайн, доработка
+• Бонус: AI-помощник — голосовой бот принимает звонки и записывает клиентов 24/7
+
+Примеры работ — в галерее. Напишите задачу — отвечу в течение 15 минут и предложу решение под вашу нишу.
+    ]]></Description>
+    <Images>
+      <Image url="https://investfreelife.github.io/nimbo-portfolio/1.png"/>
+      <Image url="https://investfreelife.github.io/nimbo-portfolio/2.png"/>
+      <Image url="https://investfreelife.github.io/nimbo-portfolio/3.png"/>
+      <Image url="https://investfreelife.github.io/nimbo-portfolio/4.png"/>
+      <Image url="https://investfreelife.github.io/nimbo-portfolio/5.png"/>
+      <Image url="https://investfreelife.github.io/nimbo-portfolio/6.png"/>
+    </Images>
+  </Ad>
+</Ads>

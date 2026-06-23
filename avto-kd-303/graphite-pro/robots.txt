@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://investfreelife.github.io/avto-kd-303/graphite-pro/sitemap.xml
